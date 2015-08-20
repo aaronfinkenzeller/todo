@@ -1,5 +1,6 @@
+var path = require('path')
 var pg = require('pg')
-var connectionString = process.env.DATABASE_URL ||'postgres://ocalhost:5432/todo';
+var connectionString = require(path.join(__dirname, '../', '../', 'config'));
 
 var client = new pg.Client(connectionString)
 client.connect();

@@ -1,18 +1,18 @@
 var express = require('express');
 var router = express.Router();
 var path = require('path')
+var connectionString = require(path.join(__dirname, '../', '../', 'config'));
 
 var pg = require('pg')
-var connectionString = process.env.DATABASE_URL ||'postgres://aaron:newone@localhost:5432/todo'
 
 router.get('/public/javascripts/app.js',function(req, res, next) {
-  res.sendFile(path.join(__dirname, '../public/javascripts','app.js'))
+  res.sendFile(path.join(__dirname, '../../client/public/javascripts','app.js'))
 });
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   //res.render('index', { title: 'Express' });
-  res.sendFile(path.join(__dirname, '../views', 'index.html'));
+  res.sendFile(path.join(__dirname, '../','../','client','views', 'index.html'));
 });
 
 //************************************************************************
